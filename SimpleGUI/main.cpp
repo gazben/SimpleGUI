@@ -5,6 +5,13 @@
 
 #include <FreeImage/FreeImage.h>
 
+
+
+/*
+The main function is for testing purposes only! 
+
+The main function is used to test the SimpleGUI library.
+*/
 int main(void)
 {
 	GLFWwindow* window;
@@ -20,10 +27,6 @@ int main(void)
 		glfwTerminate();
 		return -1;
 	}
-
-	FIBITMAP* bitmap = new FIBITMAP();
-	
-
 
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
