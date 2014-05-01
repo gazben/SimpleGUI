@@ -3,7 +3,7 @@
 
 #include "Control.h"
 
-class Button :public Control{
+class Button :public Control, public:Displayable{
 
 }
 
