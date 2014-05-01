@@ -3,9 +3,17 @@
 
 #include "Displayable.h"
 
-class Control :public Displayable{
+class Control :Displayable{
 
+private:
 
+	float x;
+	float y;
+	float width;
+	float height;
+
+public:
+	virtual void ProcessUserEvents() = 0;
 
 };
 
