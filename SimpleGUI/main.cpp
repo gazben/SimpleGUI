@@ -3,6 +3,8 @@
 #define GLFW_DLL 
 #include <GLFW/glfw3.h>
 
+#include <FreeImage/FreeImage.h>
+
 int main(void)
 {
 	GLFWwindow* window;
@@ -18,6 +20,10 @@ int main(void)
 		glfwTerminate();
 		return -1;
 	}
+
+	FIBITMAP* bitmap = new FIBITMAP();
+	
+
 
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
