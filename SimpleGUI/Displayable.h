@@ -1,10 +1,20 @@
 #ifndef Displayable_h__
 #define Displayable_h__
 
-class Displayable 
+class Displayable
 {
+private:
+	bool visible;
 
 public:
+
+	Displayable(){
+		visible = true;
+	}
+
+	bool isVisible(){
+		return visible;
+	}
 	virtual void Draw() = 0;
 };
 
