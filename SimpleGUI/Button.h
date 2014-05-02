@@ -1,11 +1,22 @@
 #ifndef Button_h__
 #define Button_h__
 
-#include "Control.h"
+#include "GUIelement.h"
 
-class Button :public Control{
+#include <GLFW/glfw3.h>
 
+class Button :public GUIelement{
+public:
+
+	virtual void Show();
+
+	bool isClicked();
+
+	virtual void ProcessUserEvents(GLFWwindow*);
+
+private:
+
+	bool clicked;
 }
-
 
 #endif // Button_h__
