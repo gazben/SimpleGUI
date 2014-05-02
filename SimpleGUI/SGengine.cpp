@@ -18,10 +18,13 @@ void SGengine::AddElement(GUIelement* inElement)
 
 void SGengine::InitWindow(std::string title, int width, int height)
 {
-	glfwInit();
-
 	window = glfwCreateWindow(width, height, "szar", NULL, NULL);
 
 	glfwMakeContextCurrent(window);
+}
 
+SGengine::SGengine()
+{
+	glfwInit();
+	window = nullptr;
 }
