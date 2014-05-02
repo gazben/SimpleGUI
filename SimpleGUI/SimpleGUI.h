@@ -17,8 +17,9 @@ class SimpleGUI{
 public:
 
 	//Initialise the gui
-	void Init( std::string , int height = 800, int width = 600);	//init without xml
-	void Init(std::string);		//init from xml
+	void InitWindow( std::string , int height = 800, int width = 600);	//init without xml
+
+	void LoadFromXML(std::string);
 
 	void setMousePosition();
 	void setKeyState();
