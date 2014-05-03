@@ -14,6 +14,8 @@ public:
 
 	virtual void ProcessUserEvents(GLFWwindow*);
 
+	virtual GUIelement* clone() const;
+
 private:
 
 	bool clicked;
