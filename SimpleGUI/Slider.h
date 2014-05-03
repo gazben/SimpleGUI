@@ -1,9 +1,9 @@
 #ifndef Slider_h__
 #define Slider_h__
 
-#include "Control.h"
+#include "GUIelement.h"
 
-class Slider :public Control
+class Slider :public GUIelement
 {
 public:
 
