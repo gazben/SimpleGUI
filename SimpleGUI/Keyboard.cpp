@@ -1,8 +1,5 @@
 #include "Keyboard.h"
 
-
-
-
 void Key::setReleased()
 {
 	pressed = false;
@@ -34,12 +31,9 @@ bool Key::isPressed()
 	}
 }
 
-Key::Key(char _key) :key(_key)
-{
+Key::Key(char _key) :key(_key){
 	timePressed = glfwGetTime();
 }
 
-void Keyboard::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-
+void Keyboard::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
 }

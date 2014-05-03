@@ -26,6 +26,8 @@ private:
 class Keyboard{
 public:
 
+	
+
 	static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };
 
