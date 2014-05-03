@@ -1,12 +1,11 @@
 #include "SGengine.h"
 #include "GUIelement.h"
-
 #include "Mouse.h"
 #include "Keyboard.h"
 
-#include <stdio.h>
-#define GLFW_DLL
-#include <GLFW/glfw3.h>
+ #define GLFW_DLL
+ #include <GLFW/glfw3.h>
+
 
 void SGengine::Show()
 {
@@ -24,12 +23,6 @@ void SGengine::HandleEvents(){
 
 void SGengine::AddElement(GUIelement& inElement){
 	GUIelements.push_back(inElement.clone());
-}
-
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
 void SGengine::InitWindow(std::string title, int width, int height)
@@ -54,8 +47,9 @@ void SGengine::WaitforEvents()
 
 	while (!glfwWindowShouldClose(window))
 	{
-		printf("%lf\n", glfwGetTime());
-
+		HandleEvents();
+		Show();
+		
 		glfwSwapBuffers(window);
 
 		glfwPollEvents();
