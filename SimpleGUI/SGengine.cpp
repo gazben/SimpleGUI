@@ -3,6 +3,9 @@
 #include "Mouse.h"
 #include "Keyboard.h"
 
+#define GLEW_STATIC
+#include <GL/glew.h>
+
  #define GLFW_DLL
  #include <GLFW/glfw3.h>
 
@@ -34,6 +37,18 @@ void SGengine::InitWindow(std::string title, int width, int height)
 	glfwSetKeyCallback(window, Keyboard::KeyCallback);
 	glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallback);
 	glfwSetCursorPosCallback(window, Mouse::MousePosCallback);
+
+	glLoadIdentity();
+
+	int Window_x;
+	int Window_y;
+	glfwGetWindowSize(window, &Window_x, &Window_y);
+
+	glViewport(0, 0, Window_x, Window_y);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0, Window_x, 0, Window_y);
+	glMatrixMode(GL_MODELVIEW);
 }
 
 SGengine::SGengine()
