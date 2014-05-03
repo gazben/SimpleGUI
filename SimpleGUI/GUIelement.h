@@ -1,28 +1,32 @@
 #ifndef GUIelement_h__
 #define GUIelement_h__
 
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 class GUIelement
 {
-private:
+protected:
 
 	bool visible;
 
-	float x;
-	float y;
-	float width;
-	float height;
+	double x;
+	double y;
+	double width;
+	double height;
 
 public:
 
-	GUIelement();
+	void SetPosition(double _x, double _y);
+	void SetSize(double _width, double _height);
 
 	bool isVisible();
+	void SetVisible(bool _visible);
+
 	virtual void Show() = 0;
 	virtual void ProcessUserEvents(GLFWwindow*) = 0;
 
-	virtual GUIelement* clone() const = 0;  // Virtual constructor for copying 
+	virtual GUIelement* clone() const = 0;  // Virtual constructor for copying
+
 };
 
 #endif // GUIelement_h__
