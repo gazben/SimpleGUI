@@ -1,6 +1,7 @@
 #include "Button.h"
 
-void Button::ProcessUserEvents(){
+void Button::ProcessUserEvents(GLFWwindow* )
+{
 
 }
 
