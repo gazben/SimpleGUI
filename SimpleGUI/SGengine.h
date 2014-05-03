@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#define GLFW_DLL 
+#define GLFW_DLL
 #include <GLFW/glfw3.h>
 
 #include "GUIelement.h"
@@ -16,7 +16,7 @@ public:
 	void HandleEvents();
 	void Show();
 
-	void AddElement(GUIelement*);
+	void AddElement(GUIelement&);
 
 	void InitWindow(std::string, int height, int width);
 
