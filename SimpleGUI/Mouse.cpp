@@ -31,13 +31,18 @@ void Mouse::SetMousePosition(GLFWwindow* window, double _x, double _y){
 	x = _x;
 	y = _y;
 }
-
-void Mouse::ProcessMouseEvents(GLFWwindow* window){
-	GetMousePosition(window);
-	GetMouseButtonState(window);
-}
+// 
+// void Mouse::MouseCallback(GLFWwindow* window){
+// 	GetMousePosition(window);
+// 	GetMouseButtonState(window);
+// }
 
 Mouse::Mouse(){
 	x = 0;
 	y = 0;
+}
+
+void Mouse::MouseCallback(GLFWwindow* window, int button, int action, int mods)
+{
+
 }

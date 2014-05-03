@@ -8,7 +8,7 @@ public:
 
 	Mouse();
 
-	static void ProcessMouseEvents(GLFWwindow* window);
+	static void MouseCallback(GLFWwindow* window, int button, int action, int mods);
 
 	static void SetMousePosition(GLFWwindow* window, double _x, double _y);
 
