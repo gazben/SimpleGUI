@@ -5,31 +5,15 @@
 #include <GLFW/glfw3.h>
 
 class Key{
-	Key(char _key) :key(_key){
-		timePressed = glfwGetTime();
-	}
+	Key(char _key);
 
 	const char key;
 
-	bool isPressed(){
-		if (pressed){
-			if (glfwGetTime() - timePressed > 0.3 && eventFired){
-				timePressed = glfwGetTime();
-				eventFired = true;
-				return true;
-			}
-			else if (!eventFired){
-				eventFired = true;
-				return true;
-			}
-		}
-		else
-		{
-			eventFired = false;
+	bool isPressed();
 
-			return false;
-		}
-	}
+	void setPressed();
+
+	void setReleased();
 
 private:
 
@@ -40,6 +24,9 @@ private:
 };
 
 class Keyboard{
+public:
+
+	static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };
 
 #endif // Keyboard_h__
