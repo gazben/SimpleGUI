@@ -39,6 +39,8 @@ void SGengine::InitWindow(std::string title, int width, int height)
 	glfwMakeContextCurrent(window);
 
 	glfwSetKeyCallback(window, Keyboard::KeyCallback);
+	glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallback);
+	glfwSetCursorPosCallback(window, Mouse::MousePosCallback);
 }
 
 SGengine::SGengine()
@@ -49,7 +51,7 @@ SGengine::SGengine()
 
 void SGengine::WaitforEvents()
 {
-	//FOR TESTING ONLY!
+
 	while (!glfwWindowShouldClose(window))
 	{
 		printf("%lf\n", glfwGetTime());
