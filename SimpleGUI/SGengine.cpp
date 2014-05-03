@@ -1,15 +1,20 @@
 #include "SGengine.h"
 #include "GUIelement.h"
 
+#include "Mouse.h"
+
 void SGengine::Show()
 {
-	for each (GUIelement* a in GUIelements){
-		if (a->isVisible())
-			a->Show();
+	for (unsigned int i = 0; i < GUIelements.size(); i++){
+		if (GUIelements[i]->isVisible())
+			GUIelements[i]->Show();
 	}
 }
 
 void SGengine::HandleEvents(){
+	for (unsigned int i = 0; i < GUIelements.size(); i++){
+		GUIelements[i]->ProcessUserEvents(window);
+	}
 }
 
 void SGengine::AddElement(GUIelement& inElement){
@@ -23,12 +28,12 @@ void SGengine::InitWindow(std::string title, int width, int height)
 	glfwMakeContextCurrent(window);
 
 	//FOR TESTING ONLY!
-	while (!glfwWindowShouldClose(window))
-	{
-		glfwSwapBuffers(window);
-
-		glfwPollEvents();
-	}
+// 	while (!glfwWindowShouldClose(window))
+// 	{
+// 		glfwSwapBuffers(window);
+// 
+// 		glfwPollEvents();
+// 	}
 }
 
 SGengine::SGengine()
