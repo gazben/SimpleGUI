@@ -6,9 +6,10 @@
 #define GLFW_DLL
 #include <GLFW/glfw3.h>
 
-#include "GUIelement.h"
 #include "Control.h"
 #include "Mouse.h"
+
+class GUIelement;
 
 class SGengine{
 public:
