@@ -2,6 +2,11 @@
 #include "GUIelement.h"
 
 #include "Mouse.h"
+#include "Keyboard.h"
+
+#include <stdio.h>
+#define GLFW_DLL
+#include <GLFW/glfw3.h>
 
 void SGengine::Show()
 {
@@ -21,23 +26,41 @@ void SGengine::AddElement(GUIelement& inElement){
 	GUIelements.push_back(inElement.clone());
 }
 
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+}
+
 void SGengine::InitWindow(std::string title, int width, int height)
 {
 	window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 
 	glfwMakeContextCurrent(window);
 
-	//FOR TESTING ONLY!
-// 	while (!glfwWindowShouldClose(window))
-// 	{
-// 		glfwSwapBuffers(window);
-// 
-// 		glfwPollEvents();
-// 	}
+	glfwSetKeyCallback(window, Keyboard::KeyCallback);
 }
 
 SGengine::SGengine()
 {
 	glfwInit();
 	window = nullptr;
+}
+
+void SGengine::WaitforEvents()
+{
+	//FOR TESTING ONLY!
+	while (!glfwWindowShouldClose(window))
+	{
+		printf("%lf\n", glfwGetTime());
+
+		glfwSwapBuffers(window);
+
+		glfwPollEvents();
+	}
+}
+
+void SGengine::setMousePosition(double x, double y)
+{
+	Mouse::SetMousePosition(window, x, y);
 }

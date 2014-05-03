@@ -21,6 +21,10 @@ public:
 
 	void InitWindow(std::string, int height, int width);
 
+	void WaitforEvents();
+
+	void setMousePosition(double x, double y);
+
 	SGengine();
 
 private:
