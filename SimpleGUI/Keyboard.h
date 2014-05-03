@@ -1,8 +1,7 @@
 #ifndef Keyboard_h__
 #define Keyboard_h__
 
-#define GLFW_DLL
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 class Key{
 	Key(char _key);

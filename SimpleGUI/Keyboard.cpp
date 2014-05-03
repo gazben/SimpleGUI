@@ -1,5 +1,8 @@
 #include "Keyboard.h"
 
+ #define GLFW_DLL
+ #include <GLFW/glfw3.h>
+
 void Key::setReleased()
 {
 	pressed = false;
@@ -29,6 +32,7 @@ bool Key::isPressed()
 
 		return false;
 	}
+	return false;
 }
 
 Key::Key(char _key) :key(_key){
