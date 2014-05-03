@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "GUIelement.h"
-#include "Control.h"
 #include "SGengine.h"
+
+class GUIelement;
 
 /*
 class SimpleGUI: this class is an interface between the SGengine and the user.
@@ -21,17 +21,14 @@ public:
 
 	void LoadFromXML(std::string);
 
-	void setMousePosition();
+	void setMousePosition( double x , double y );
 	void setKeyState();
 
 	//Add a drawable element to the gui.
 	void AddElement(GUIelement&);
 
 	//Handle the events from the user. Ex.: Mouse
-	void HandleEvents();
-
-	//Show the gui on the screen
-	void Show();
+	void WaitforEvents();
 
 	SimpleGUI(){
 		shouldClose = false;
