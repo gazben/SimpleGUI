@@ -1,5 +1,14 @@
 #include "Mouse.h"
 
+#define  GLFW_DLL
+#include <GLFW/glfw3.h>
+
+int Mouse::LeftButtonPressed = false;
+int Mouse::RightButtonPressed = false;
+
+double Mouse::x = 0;
+double Mouse::y = 0;
+
 bool Mouse::isRightButtonPressed(){
 	return RightButtonPressed;
 }

@@ -1,8 +1,7 @@
 #ifndef Mouse_h__
 #define Mouse_h__
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 class Mouse{
 public:
@@ -23,8 +22,8 @@ public:
 
 private:
 
-	static bool LeftButtonPressed;
-	static bool RightButtonPressed;
+	static int LeftButtonPressed;
+	static int RightButtonPressed;
 
 	//position of the mouse
 	static double x;
