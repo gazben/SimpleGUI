@@ -57,3 +57,12 @@ void Mouse::MousePosCallback(GLFWwindow * window, double _x, double _y){
 	printf("x: %lf , y: %lf\n", x, y);
 
 }
+
+double Mouse::GetPosition_x(GLFWwindow* window){
+	return x;
+}
+
+double Mouse::GetPosition_y(GLFWwindow* window){
+	return y;
+}
+

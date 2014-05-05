@@ -14,7 +14,8 @@ public:
 
 	static void SetMousePosition(GLFWwindow* window, double _x, double _y);
 
-	static void GetMousePosition(GLFWwindow* window);
+	static double GetPosition_x(GLFWwindow* window);
+	static double GetPosition_y(GLFWwindow* window);
 
 	static void GetMouseButtonState(GLFWwindow* window);
 
