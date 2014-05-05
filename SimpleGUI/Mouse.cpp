@@ -19,13 +19,7 @@ bool Mouse::isLeftButtonPressed(){
 	return LeftButtonPressed;
 }
 
-void Mouse::GetMouseButtonState(GLFWwindow* window){
-	LeftButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
-	RightButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
-}
-
 void Mouse::SetMousePosition(GLFWwindow* window, double _x, double _y){
-
 	int Screen_height;
 	int Screen_width;
 
@@ -41,12 +35,26 @@ Mouse::Mouse(){
 	y = 0;
 }
 
-void Mouse::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
-{
+void Mouse::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods){
+	if (button == GLFW_MOUSE_BUTTON_LEFT &&  action == GLFW_PRESS)
+		LeftButtonPressed = true;
+
+	if (button == GLFW_MOUSE_BUTTON_LEFT &&  action == GLFW_RELEASE)
+		LeftButtonPressed = false;
+
+	if (button == GLFW_MOUSE_BUTTON_RIGHT &&  action == GLFW_PRESS)
+		RightButtonPressed = true;
+
+	if (button == GLFW_MOUSE_BUTTON_RIGHT &&  action == GLFW_RELEASE)
+		RightButtonPressed = false;
+
+#ifdef _DEBUG
+	printf("Current state of mouse buttons: Left: %d  Right: %d\n", LeftButtonPressed , RightButtonPressed );
+#endif // _DEBUG
+
 }
 
 void Mouse::MousePosCallback(GLFWwindow * window, double _x, double _y){
-
 	int Screen_height;
 	int Screen_width;
 
@@ -54,15 +62,16 @@ void Mouse::MousePosCallback(GLFWwindow * window, double _x, double _y){
 
 	x = _x;
 	y = Screen_height - _y;
-	printf("x: %lf , y: %lf\n", x, y);
 
+#ifdef _DEBUG
+	printf("x: %lf , y: %lf\n", x, y);
+#endif
 }
 
-double Mouse::GetPosition_x(GLFWwindow* window){
+double Mouse::GetPosition_x(){
 	return x;
 }
 
-double Mouse::GetPosition_y(GLFWwindow* window){
+double Mouse::GetPosition_y(){
 	return y;
 }
-

@@ -14,13 +14,10 @@ public:
 
 	static void SetMousePosition(GLFWwindow* window, double _x, double _y);
 
-	static double GetPosition_x(GLFWwindow* window);
-	static double GetPosition_y(GLFWwindow* window);
-
-	static void GetMouseButtonState(GLFWwindow* window);
+	static double GetPosition_x();
+	static double GetPosition_y();
 
 	static bool isLeftButtonPressed();
-
 	static bool isRightButtonPressed();
 
 private:
