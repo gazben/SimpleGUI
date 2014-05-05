@@ -5,12 +5,12 @@
 
 #include "GUIelement.h"
 
-class Button :public GUIelement{
+class RadioButton :public GUIelement{
 public:
 
-	Button(std::string _text, double _x, double _y, double _width, double _height);
+	RadioButton(std::string _text, double _x, double _y, double _width, double _height);
 
-	Button(const Button& _inButton);
+	RadioButton(const RadioButton& _inButton);
 
 	virtual void Show();
 
