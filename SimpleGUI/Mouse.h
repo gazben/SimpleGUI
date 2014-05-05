@@ -3,6 +3,12 @@
 
 struct GLFWwindow;
 
+enum MouseState{
+	DOWN,
+	UP,
+	HELD
+};
+
 class Mouse{
 public:
 
@@ -17,17 +23,23 @@ public:
 	static double GetPosition_x();
 	static double GetPosition_y();
 
-	static bool isLeftButtonPressed();
-	static bool isRightButtonPressed();
+	static MouseState getLeftButtonState();
+	static MouseState getRightButtonState();
+
+	static bool isClickLeft(GLFWwindow* window);
 
 private:
 
-	static int LeftButtonPressed;
-	static int RightButtonPressed;
+	//status of the buttons
+	static MouseState LeftButtonState;
+		static MouseState LeftButtonState_last;
+	static MouseState RightButtonState;
+		static MouseState RightButtonState_last;
 
 	//position of the mouse
 	static double x;
 	static double y;
+
 };
 
 #endif // Mouse_h__
