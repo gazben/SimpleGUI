@@ -8,7 +8,7 @@ GUIelement* RadioGroup::clone() const{
 }
 
 void RadioGroup::ProcessUserEvents(GLFWwindow* window){
-	for (int i = 0; i < RadioButtons.size(); i++){		//first we update the buttons (to get the right time values
+	for (unsigned int i = 0; i < RadioButtons.size(); i++){		//first we update the buttons (to get the right time values
 		RadioButtons[i].ProcessUserEvents(window);
 	}
 
@@ -17,7 +17,7 @@ void RadioGroup::ProcessUserEvents(GLFWwindow* window){
 		int maxIndex = 0;			//index of the last clicked element
 
 		if (RadioButtons.size() > 0){
-			for (int i = 1; i < RadioButtons.size(); i++){
+			for (unsigned int i = 1; i < RadioButtons.size(); i++){
 				if (RadioButtons[i].getTimeClicked() > maxClickedTime){
 					maxClickedTime = RadioButtons[i].getTimeClicked();
 					maxIndex = i;
@@ -25,7 +25,7 @@ void RadioGroup::ProcessUserEvents(GLFWwindow* window){
 			}	//max search for end
 		}	//size > 0 if end
 
-		for (int i = 0; i < RadioButtons.size(); i++){
+		for (unsigned int i = 0; i < RadioButtons.size(); i++){
 			if (i != maxIndex){
 				RadioButtons[i].setClicked(false);	//we unclick the buttons
 			}
@@ -36,7 +36,7 @@ void RadioGroup::ProcessUserEvents(GLFWwindow* window){
 void RadioGroup::Show()	{
 	if (visible)
 	{
-		for (int i = 0; i < RadioButtons.size(); i++){
+		for (unsigned int i = 0; i < RadioButtons.size(); i++){
 			RadioButtons[i].Show();
 		}
 	}
