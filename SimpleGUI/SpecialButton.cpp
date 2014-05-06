@@ -39,9 +39,7 @@ void SpecialButton::ProcessUserEvents(GLFWwindow* window){
 
 			double completed_distance = ((2 * PI * (height / 2.0)) / 2.0) * time_elapsed;
 
-			Button_value = completed_distance / (2 * PI * (height / 2.0));		//megtett út / össz út
-
-			printf("Button value: %lf  TimeElapsed: %lf\n", Button_value, time_elapsed);
+			Button_value = completed_distance / (2 * PI * (height / 2.0));
 
 			if (time_elapsed >= 2.0){
 				Button_value = 0;
