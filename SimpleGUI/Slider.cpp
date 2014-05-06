@@ -32,7 +32,10 @@ void Slider::ProcessUserEvents(GLFWwindow* window){
 			else{
 				Slider_value = (Mouse_y - y) / (height);
 			}
+
+#ifdef _DEBUG
 			printf("Slider: %lf\n", Slider_value);
+#endif // DEBUG
 		}
 	}
 }
@@ -76,6 +79,13 @@ void Slider::Show(){
 		glVertex2d(x + (width * Slider_value) - sliderSize_thick * 0.5, y + height + sliderSize_thick);
 		glVertex2d(x + (width * Slider_value) + sliderSize_thick * 0.5, y + height + sliderSize_thick);
 		glVertex2d(x + (width * Slider_value) + sliderSize_thick * 0.5, y - sliderSize_thick);
+	}
+	else
+	{
+		glVertex2d(x - sliderSize_thick, y + (height * Slider_value) - sliderSize_thick * 0.5);
+		glVertex2d(x + width + sliderSize_thick, y + (height * Slider_value) - sliderSize_thick * 0.5);
+		glVertex2d(x + width + sliderSize_thick, y + (height * Slider_value) + sliderSize_thick * 0.5);
+		glVertex2d(x - sliderSize_thick, y + (height * Slider_value) + sliderSize_thick * 0.5);
 	}
 
 	glEnd();
