@@ -3,9 +3,13 @@
 
 #include "GUIelement.h"
 
+struct GLFWwindow;
+
 class SpecialButton : public GUIelement
 {
 public:
+
+	SpecialButton(double _x, double _y, double _width, double _height);
 
 	virtual void Show();
 
@@ -13,11 +17,13 @@ public:
 
 	virtual GUIelement* clone() const;
 
+	//void(*ButtonDoneEvent)(void);
 
 private:
 
-	double Slider_value;
+	double Button_value;
 
-
+	bool pressed;
+	double clicked_time;
+};
 #endif // SpecialButton_h__
-
