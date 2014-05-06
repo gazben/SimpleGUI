@@ -20,9 +20,14 @@ public:
 
 	virtual void ProcessUserEvents(GLFWwindow*);
 
+	double getTimeClicked();
+
+	void setClicked(bool _clicked);
+
 private:
 
 	bool clicked;
+	double timeClicked;
 
 	std::string text;
 };

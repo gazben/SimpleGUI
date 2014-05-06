@@ -13,6 +13,9 @@ printf("gl.h included");
 #define GLEW_STATIC
 #include <GL/glew.h>
 
+#define  GLFW_DLL
+#include <GLFW/glfw3.h>
+
 RadioButton::RadioButton(std::string _text, double _x, double _y, double _width, double _height){
 	text = _text;
 	visible = true;
@@ -71,12 +74,19 @@ void RadioButton::ProcessUserEvents(GLFWwindow* window){
 		if (Mouse::isClickLeft(window)){
 			clicked = !clicked;
 
+			timeClicked = glfwGetTime();
 #ifdef _DEBUG
-			//printf("Button has been clicked!\n");
+			printf("Button has been clicked!\n");
 #endif
 		}
-
-		
-
 	} // crossing if end
 }	// ProcessUserEvents function end
+
+double RadioButton::getTimeClicked(){
+	return timeClicked;
+}
+
+//we can set manually a buttons state
+void RadioButton::setClicked(bool _clicked){
+	clicked = _clicked;
+}
