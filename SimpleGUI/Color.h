@@ -1,3 +1,6 @@
+#ifndef Color_h__
+#define Color_h__
+
 struct Color {
 	float r, g, b;
 
@@ -46,3 +49,4 @@ namespace Colors{
 	Color white(1.0f, 1.0f, 1.0f);
 	Color black(0.01f, 0.01f, 0.01f);
 }
+#endif // Color_h__
