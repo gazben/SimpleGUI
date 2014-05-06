@@ -57,17 +57,34 @@ void SpecialButton::Show()
 {
 	//first we draw the button
 	glBegin(GL_TRIANGLE_FAN);
-	float radius = height / 2.0, center_x = x + radius, center_y = y + radius;
+	double radius = height / 2.0, center_x = x + radius, center_y = y + radius;
 
 	glColor3f(Colors::green.r, Colors::green.g, Colors::green.b);
 
-	glVertex2f(center_x, center_y);
+	glVertex2d(center_x, center_y);
 
 	for (int i = 0; i <= 64; i++) {
-		float angle = float(i) / 64 * 2.0f * PI;
-		glVertex2f(center_x + radius*cos(angle), center_y + radius*sin(angle));
+		double angle = double(i) / 64 * 2.0f * PI;
+		glVertex2d(center_x + radius*cos(angle), center_y + radius*sin(angle));
 	}
 	glEnd();
+
+	//draw the outer circtle
+	glPushAttrib(GL_LINE_BIT);
+
+	glLineWidth( radius / 7.0 );
+
+	glBegin(GL_LINE_STRIP);
+
+	glColor3f(Colors::blue.r, Colors::blue.g, Colors::blue.b);
+
+	for (double i = 0; i <= 64 * Button_value; i++) {
+		double angle = i / 64 * 2.0f * PI;
+		glVertex2d(center_x + radius*cos(angle), center_y + radius*sin(angle));
+	}
+	glEnd();
+
+	glPopAttrib();
 }
 
 SpecialButton::SpecialButton(double _x, double _y, double _width, double _height){
@@ -80,4 +97,8 @@ SpecialButton::SpecialButton(double _x, double _y, double _width, double _height
 	pressed = false;
 	clicked_time = 0;
 	Button_value = 0;
+}
+
+double SpecialButton::getButtonValue(){
+	return Button_value;
 }

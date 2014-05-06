@@ -19,6 +19,8 @@ public:
 
 	//void(*ButtonDoneEvent)(void);
 
+	double getButtonValue();;
+
 private:
 
 	double Button_value;
