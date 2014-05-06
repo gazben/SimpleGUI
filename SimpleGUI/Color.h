@@ -48,5 +48,6 @@ namespace Colors{
 	static Color purple(87.0f / 255.0f, 144.0f / 255.0f, 18.0f / 255.0f);
 	static Color white(1.0f, 1.0f, 1.0f);
 	static Color black(0.01f, 0.01f, 0.01f);
-};
+}
+
 #endif // Color_h__
