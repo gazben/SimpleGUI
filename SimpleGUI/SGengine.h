@@ -22,7 +22,11 @@ public:
 
 	void setMousePosition(double x, double y);
 
+	void LoadFromXML(std::string);
+
 	SGengine();
+
+	~SGengine();
 
 private:
 
