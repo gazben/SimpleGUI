@@ -8,7 +8,7 @@
 class RadioButton :public GUIelement{
 public:
 
-	RadioButton(std::string _text, double _x, double _y, double _width, double _height);
+	RadioButton(double _x, double _y, double _width, double _height);
 
 	RadioButton(const RadioButton& _inButton);
 
@@ -28,8 +28,6 @@ private:
 
 	bool clicked;
 	double timeClicked;
-
-	std::string text;
 };
 
 #endif // Button_h__

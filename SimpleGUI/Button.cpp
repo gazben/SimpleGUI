@@ -16,8 +16,7 @@ printf("gl.h included");
 #define  GLFW_DLL
 #include <GLFW/glfw3.h>
 
-RadioButton::RadioButton(std::string _text, double _x, double _y, double _width, double _height){
-	text = _text;
+RadioButton::RadioButton(double _x, double _y, double _width, double _height){
 	visible = true;
 	x = _x;
 	y = _y;
@@ -26,7 +25,6 @@ RadioButton::RadioButton(std::string _text, double _x, double _y, double _width,
 }
 
 RadioButton::RadioButton(const RadioButton& _inButton){
-	text = _inButton.text;
 	visible = _inButton.visible;
 	x = _inButton.x;
 	y = _inButton.y;
