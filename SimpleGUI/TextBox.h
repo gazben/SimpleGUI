@@ -7,8 +7,9 @@
 
 #include <string>
 
-class TextBox :public GUIelement{
+class Slider;
 
+class TextBox :public GUIelement{
 public:
 
 	TextBox(double _x, double _y, double _width, double _height);
@@ -19,7 +20,15 @@ public:
 
 	virtual GUIelement* clone() const;
 
+	void clear();
+
+	Color& getBackgroundColor();
+	Color& getTextColor();
+
+	void setText(std::string);
+
 private:
+
 
 	std::string text;
 
@@ -27,7 +36,5 @@ private:
 	Color textColor;
 
 	Font font;
-
-
 };
 #endif // TextBox_h__

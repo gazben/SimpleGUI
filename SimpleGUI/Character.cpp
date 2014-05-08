@@ -9,16 +9,15 @@ void Character::Draw(double pos_x, double pos_y)
 		loadtexture();
 		loaded = true;
 	}
-		
 
 	glEnable(GL_TEXTURE_2D);
 
 	glBindTexture(GL_TEXTURE_2D, tex_ID);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex2f(pos_x , pos_y);
+	glTexCoord2f(0.0, 0.0); glVertex2f(pos_x, pos_y);
 	glTexCoord2f(0.0, 1.0); glVertex2f(pos_x, pos_y + height);
 	glTexCoord2f(1.0, 1.0); glVertex2f(pos_x + width, pos_y + height);
-	glTexCoord2f(1.0, 0.0); glVertex2f( pos_x + width, pos_y);
+	glTexCoord2f(1.0, 0.0); glVertex2f(pos_x + width, pos_y);
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 }

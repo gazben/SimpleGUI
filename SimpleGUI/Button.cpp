@@ -36,9 +36,9 @@ void RadioButton::Show(){
 	glPushMatrix();
 
 	if (clicked)
-		glColor3f(Colors::green.r, Colors::green.g, Colors::green.b);
+		glColor3f(Colors::red.r, Colors::green.g, Colors::grey.b);
 	else
-		glColor3f(Colors::blue.r, Colors::blue.g, Colors::blue.b);
+		glColor3f(Colors::grey.r, Colors::purple.g, Colors::green.b);
 
 	glBegin(GL_QUADS);
 

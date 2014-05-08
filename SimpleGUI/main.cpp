@@ -16,43 +16,43 @@ The main function is for testing purposes only!
 The main function is used to test the SimpleGUI library.
 */
 
-void callback(){
-	printf("works");
-}
-
 int main()
 {
 	SimpleGUI gui;
-	gui.InitWindow("SimpleGUI testwindow");
+	gui.InitWindow("SimpleGUI testwindow", 800, 600);
 
-// 	RadioButton testButton(0, 0, 200, 100);
-// 	RadioButton testButton2(150, 200, 50, 25);
-// 
-// 	RadioGroup group;
+	SpecialButton clearButton(50, 200, 30, 30);
+	TextBox text(300, 100, 100, 100);
+	text.setText("proba");
+	//clearButton.SetButtonDoneCallback(text.clear);
 
-// 	group.AddElement(testButton);
-// 	group.AddElement(testButton2);
+	Image background( "background.png", 100 , 100 );
+	gui.AddElement(background);
 
-/*	gui.AddElement(group);*/
+	Slider r(40 , 30 , 60 , 15);
+	Slider g(40, 70, 60, 15);
+	Slider b(40, 110, 60, 15);
+	Slider a(40, 150, 60, 15);
 
-/*	Slider testSlider(150, 200, 50, 25);*/
+	RadioGroup group;
 
-	//gui.AddElement(testSlider);
+	RadioButton button1(130 , 90 , 30 , 25);
+	RadioButton button2(130 , 130 , 30 , 25);
 
-	TextBox na( 10 , 10 , 400 , 400 );
-	
-	gui.AddElement(na);
-// 	SpecialButton tempSpecialButton(10, 10, 50 , 50);
-// 	tempSpecialButton.SetButtonDoneCallback( callback );
+	group.AddElement(button1);
+	group.AddElement(button2);
 
-/*	gui.AddElement(tempSpecialButton);*/
+	gui.AddElement(group);
 
-//	gui.LoadFromXML("test.xml");
+	gui.AddElement(r);
+	gui.AddElement(g);
+	gui.AddElement(b);
+	gui.AddElement(a);
 
-// 	Image test("res/cs_font.png" ,0 , 0);
-// 	gui.AddElement(test);
+	gui.AddElement(text);
+	gui.AddElement(clearButton);
 
 	gui.WaitforEvents();
-	
+
 	return 0;
 }

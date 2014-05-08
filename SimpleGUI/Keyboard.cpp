@@ -3,16 +3,17 @@
  #define GLFW_DLL
  #include <GLFW/glfw3.h>
 
-void Key::setReleased()
-{
+void Key::setReleased(){
 	pressed = false;
 }
 
-void Key::setPressed()
-{
+void Key::setPressed(){
 	pressed = true;
 }
 
+/*
+Returns true if a button was held more than 0.3 secounds (to not write out a lot of characters)
+*/
 bool Key::isPressed()
 {
 	if (pressed){

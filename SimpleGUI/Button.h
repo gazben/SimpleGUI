@@ -12,17 +12,17 @@ public:
 
 	RadioButton(const RadioButton& _inButton);
 
-	virtual void Show();
+	virtual void Show();		//draws the Button
 
-	bool isClicked();
+	bool isClicked();	//returns true if the button is in clicked state
 
 	virtual GUIelement* clone() const;
 
-	virtual void ProcessUserEvents(GLFWwindow*);
+	virtual void ProcessUserEvents(GLFWwindow*);	
 
-	double getTimeClicked();
+	double getTimeClicked();		//returns the time when the button was clicked in secounds
 
-	void setClicked(bool _clicked);
+	void setClicked(bool _clicked);		//manually set the button state
 
 private:
 
