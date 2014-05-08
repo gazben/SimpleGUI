@@ -30,5 +30,7 @@ private:
 
 	bool pressed;
 	double clicked_time;
+
+	ButtonDoneEvent callback;
 };
 #endif // SpecialButton_h__

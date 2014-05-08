@@ -18,10 +18,6 @@ GUIelement* SpecialButton::clone() const
 	return new SpecialButton(*this);
 }
 
-void callback(){
-	printf("EVENT ACCOURED IT WORKS!!!!!!");
-}
-
 void SpecialButton::ProcessUserEvents(GLFWwindow* window){
 	double mouse_x = Mouse::GetPosition_x();
 	double mouse_y = Mouse::GetPosition_y();
@@ -48,7 +44,9 @@ void SpecialButton::ProcessUserEvents(GLFWwindow* window){
 			if (time_elapsed >= 2.0){
 				Button_value = 0;
 				clicked_time = glfwGetTime();
-				SetButtonDoneCallback( &callback);
+
+				if (callback != nullptr)
+					callback();
 			}
 		}
 		else{
@@ -100,9 +98,11 @@ SpecialButton::SpecialButton(double _x, double _y, double _width, double _height
 	y = _y;
 
 	pressed = false;
+	visible = true;
 	clicked_time = 0;
 	Button_value = 0;
 
+	callback = nullptr;
 }
 
 double SpecialButton::getButtonValue(){
@@ -115,5 +115,5 @@ void SpecialButton::ButtonCallback()
 }
 
 void SpecialButton::SetButtonDoneCallback(ButtonDoneEvent cb){
-	cb();
+	callback = cb;
 }
