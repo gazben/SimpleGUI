@@ -6,11 +6,20 @@
 #include "SpecialButton.h"
 #include "Image.h"
 #include "Font.h"
+#include "TextBox.h"
+
+#include <stdio.h>
+
 /*
 The main function is for testing purposes only!
 
 The main function is used to test the SimpleGUI library.
 */
+
+void callback(){
+	printf("works");
+}
+
 int main()
 {
 	SimpleGUI gui;
@@ -30,10 +39,15 @@ int main()
 
 	//gui.AddElement(testSlider);
 
-	//SpecialButton tempSpecialButton(100, 100, 50 , 50);
-	//gui.AddElement(tempSpecialButton);
+	TextBox na( 10 , 10 , 400 , 400 );
+	
+	gui.AddElement(na);
+// 	SpecialButton tempSpecialButton(10, 10, 50 , 50);
+// 	tempSpecialButton.SetButtonDoneCallback( callback );
 
-	gui.LoadFromXML("test.xml");
+/*	gui.AddElement(tempSpecialButton);*/
+
+//	gui.LoadFromXML("test.xml");
 
 // 	Image test("res/cs_font.png" ,0 , 0);
 // 	gui.AddElement(test);
