@@ -1,6 +1,11 @@
 #include "SimpleGUI.h"
 
 #include "Button.h"
+#include "RadioGroup.h"
+#include "Slider.h"
+#include "SpecialButton.h"
+#include "Image.h"
+#include "Font.h"
 /*
 The main function is for testing purposes only!
 
@@ -11,41 +16,29 @@ int main()
 	SimpleGUI gui;
 	gui.InitWindow("SimpleGUI testwindow");
 
-	Button testButton("test", 100 , 100 , 20 , 10);
+// 	RadioButton testButton(0, 0, 200, 100);
+// 	RadioButton testButton2(150, 200, 50, 25);
+// 
+// 	RadioGroup group;
 
-	gui.AddElement(testButton);
+// 	group.AddElement(testButton);
+// 	group.AddElement(testButton2);
+
+/*	gui.AddElement(group);*/
+
+/*	Slider testSlider(150, 200, 50, 25);*/
+
+	//gui.AddElement(testSlider);
+
+	//SpecialButton tempSpecialButton(100, 100, 50 , 50);
+	//gui.AddElement(tempSpecialButton);
+
+	gui.LoadFromXML("test.xml");
+
+// 	Image test("res/cs_font.png" ,0 , 0);
+// 	gui.AddElement(test);
 
 	gui.WaitforEvents();
-	// 	GLFWwindow* window;
-	//
-	// 	/* Initialize the library */
-	// 	if (!glfwInit())
-	// 		return -1;
-	//
-	// 	/* Create a windowed mode window and its OpenGL context */
-	// 	window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-	// 	if (!window)
-	// 	{
-	// 		glfwTerminate();
-	// 		return -1;
-	// 	}
-	//
-	// 	/* Make the window's context current */
-	// 	glfwMakeContextCurrent(window);
-	//
-	// 	/* Loop until the user closes the window */
-	// 	while (!glfwWindowShouldClose(window))
-	// 	{
-	// 		/* Render here */
-	//
-	// 		/* Swap front and back buffers */
-	// 		glfwSwapBuffers(window);
-	//
-	// 		/* Poll for and process events */
-	// 		glfwPollEvents();
-	// 	}
-	//
-	// 	glfwTerminate();
-
+	
 	return 0;
 }
