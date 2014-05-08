@@ -38,28 +38,34 @@ XMLparser::XMLparser(SGengine* _engine, std::string pathname){
 		while ((element) != nullptr){
 			TypeName = element->FirstChildElement("TypeName")->GetText();
 
+//////////////////////////////////////////////////////////////////////////
+// RadioButton 
+//////////////////////////////////////////////////////////////////////////
 			if (TypeName == "Button")
 			{
 				x = atof((element->FirstChildElement("x")->GetText()));
 				y = atof((element->FirstChildElement("y")->GetText()));
-				width = atof((element->FirstChildElement("y")->GetText()));
+				width = atof((element->FirstChildElement("width")->GetText()));
 				height = atof((element->FirstChildElement("height")->GetText()));
 
 				RadioButton gui_element(x, y, width, height);
 				engine->AddElement(gui_element);
 			}
+//////////////////////////////////////////////////////////////////////////
+// RadioGroup 
+//////////////////////////////////////////////////////////////////////////
 			else if (TypeName == "RadioGroup")
 			{
 				RadioGroup gui_element;
 
-				XMLNode *RadioGroupNode = element->FirstChild();
+				XMLNode *RadioGroupNode = element->FirstChild()->NextSibling();
 
 				while (RadioGroupNode != nullptr)
 				{
-					x = atof((element->FirstChildElement("x")->GetText()));
-					y = atof((element->FirstChildElement("y")->GetText()));
-					width = atof((element->FirstChildElement("y")->GetText()));
-					height = atof((element->FirstChildElement("height")->GetText()));
+					x = atof((RadioGroupNode->FirstChildElement("x")->GetText()));
+					y = atof((RadioGroupNode->FirstChildElement("y")->GetText()));
+					width = atof((RadioGroupNode->FirstChildElement("width")->GetText()));
+					height = atof((RadioGroupNode->FirstChildElement("height")->GetText()));
 
 					RadioButton radio(x, y, width, height);
 
@@ -70,26 +76,44 @@ XMLparser::XMLparser(SGengine* _engine, std::string pathname){
 
 				engine->AddElement(gui_element);
 			}
+//////////////////////////////////////////////////////////////////////////
+// SpecialButton 
+//////////////////////////////////////////////////////////////////////////
 			else if (TypeName == "SpecialButton")
 			{
 				x = atof((element->FirstChildElement("x")->GetText()));
 				y = atof((element->FirstChildElement("y")->GetText()));
-				width = atof((element->FirstChildElement("y")->GetText()));
+				width = atof((element->FirstChildElement("width")->GetText()));
 				height = atof((element->FirstChildElement("height")->GetText()));
+
+				SpecialButton gui_element(x, y, width, height);
+				engine->AddElement(gui_element);
 			}
+//////////////////////////////////////////////////////////////////////////
+// TextBox
+//////////////////////////////////////////////////////////////////////////
 			else if (TypeName == "TextBox")
 			{
 				x = atof((element->FirstChildElement("x")->GetText()));
-				y = atof((element->FirstChildElement("y")->GetText()));
+				y = atof((element->FirstChildElement("width")->GetText()));
 				width = atof((element->FirstChildElement("y")->GetText()));
 				height = atof((element->FirstChildElement("height")->GetText()));
+
+				TextBox gui_element(x, y, width, height);
+				engine->AddElement(gui_element);
 			}
+//////////////////////////////////////////////////////////////////////////
+// Slider
+//////////////////////////////////////////////////////////////////////////
 			else if (TypeName == "Slider")
 			{
 				x = atof((element->FirstChildElement("x")->GetText()));
 				y = atof((element->FirstChildElement("y")->GetText()));
-				width = atof((element->FirstChildElement("y")->GetText()));
+				width = atof((element->FirstChildElement("width")->GetText()));
 				height = atof((element->FirstChildElement("height")->GetText()));
+
+				Slider gui_element(x, y, width, height);
+				engine->AddElement(gui_element);
 			}
 
 			element = root->NextSibling();
