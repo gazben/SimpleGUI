@@ -5,17 +5,19 @@
 
 #include <vector>
 
+/*
+Ths font will be used by the textbox gui element to drw and load buttons.
+*/
 class Font{
 public:
 
 	Font();
 
-	void DrawChar(char c);
+	void DrawChar(char c, double pos_x, double pos_y);		//draw a specified character to the given x,y position
 
 private:
 
-	std::vector<Character> characers_upper;
-	std::vector<Character> characers_lower;
+	std::vector<Character> characters;		//container for the characters
 };
 
 #endif // Font_h__
