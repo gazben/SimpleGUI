@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExecutablePath>F:\Prog_Projectek\SimpleGUI\SimpleGUI\DLL;$(ExecutablePath)</ExecutablePath>
     <IncludePath>F:\Prog_Projectek\SimpleGUI\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLEW;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -52,9 +52,10 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLFW;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLES;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;glfw3.lib;glfw3dll.lib;glew32.lib;tinyxml2.lib;glew32s.lib;OPENGL32.lib;GLU32.lib;glut32.lib;glui32.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\TINYXML;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GL;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\FreeImage;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLEW;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLFW;F:\Prog_Projectek\SimpleGUI\SimpleGUI\lib\GLES;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,11 +73,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="GUIelement.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="RadioGroup.cpp" />
+    <ClCompile Include="SGengine.cpp" />
     <ClCompile Include="SimpleGUI.cpp" />
+    <ClCompile Include="Slider.cpp" />
+    <ClCompile Include="SpecialButton.cpp" />
+    <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="XMLparser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="GUIelement.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Mouse.h" />
+    <ClInclude Include="RadioGroup.h" />
+    <ClInclude Include="SGengine.h" />
     <ClInclude Include="SimpleGUI.h" />
+    <ClInclude Include="Slider.h" />
+    <ClInclude Include="SpecialButton.h" />
+    <ClInclude Include="TextBox.h" />
+    <ClInclude Include="XMLparser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
