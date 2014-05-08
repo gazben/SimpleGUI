@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <SimpleGUI>
 <Element>
-	<TypeName>Button</TypeName>
-	<x>150</x>
-	<y>200</y>
-	<width>50</width>
-	<height>25</height>	
+	<TypeName>RadioGroup</TypeName>
+	<Element>
+		<TypeName>Button</TypeName>
+		<x>50</x>
+		<y>100</y>
+		<width>50</width>
+		<height>25</height>	
+	</Element>
+	<Element>
+		<TypeName>Button</TypeName>
+		<x>150</x>
+		<y>200</y>
+		<width>75</width>
+		<height>30</height>	
+	</Element>
 </Element>
 </SimpleGUI>
