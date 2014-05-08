@@ -12,8 +12,6 @@
 #define GLFW_DLL
 #include <GLFW/glfw3.h>
 
-Font font;
-
 void SGengine::Show()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -23,8 +21,6 @@ void SGengine::Show()
 		if (GUIelements[i]->isVisible())
 			GUIelements[i]->Show();
 	}
-
-	font.DrawChar('d', 10, 10);
 }
 
 void SGengine::HandleEvents(){
@@ -59,7 +55,11 @@ void SGengine::InitWindow(std::string title, int width, int height)
 	gluOrtho2D(0, Window_x, 0, Window_y);
 	glMatrixMode(GL_MODELVIEW);
 
+	glShadeModel(GL_FLAT);
 	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 }
 
 SGengine::SGengine()
@@ -95,5 +95,9 @@ SGengine::~SGengine()
 
 void SGengine::LoadFromXML(std::string path)
 {
-	XMLparser parser( this ,path);
+	XMLparser parser(this, path);
 }
+
+/*
+Offical feeling of the project: http://www.youtube.com/watch?v=QHpU0ZfXZ_g
+*/
