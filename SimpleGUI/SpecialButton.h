@@ -5,6 +5,8 @@
 
 struct GLFWwindow;
 
+typedef void(*ButtonDoneEvent)(void);
+
 class SpecialButton : public GUIelement
 {
 public:
@@ -17,10 +19,11 @@ public:
 
 	virtual GUIelement* clone() const;
 
-	//void(*ButtonDoneEvent)(void);
+	double getButtonValue();
 
-	double getButtonValue();;
+	void SetButtonDoneCallback(ButtonDoneEvent);
 
+	void ButtonCallback();
 private:
 
 	double Button_value;

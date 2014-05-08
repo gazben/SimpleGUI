@@ -18,6 +18,10 @@ GUIelement* SpecialButton::clone() const
 	return new SpecialButton(*this);
 }
 
+void callback(){
+	printf("EVENT ACCOURED IT WORKS!!!!!!");
+}
+
 void SpecialButton::ProcessUserEvents(GLFWwindow* window){
 	double mouse_x = Mouse::GetPosition_x();
 	double mouse_y = Mouse::GetPosition_y();
@@ -44,6 +48,7 @@ void SpecialButton::ProcessUserEvents(GLFWwindow* window){
 			if (time_elapsed >= 2.0){
 				Button_value = 0;
 				clicked_time = glfwGetTime();
+				SetButtonDoneCallback( &callback);
 			}
 		}
 		else{
@@ -72,7 +77,7 @@ void SpecialButton::Show()
 	//draw the outer circtle
 	glPushAttrib(GL_LINE_BIT);
 
-	glLineWidth( radius / 7.0 );
+	glLineWidth(radius / 7.0);
 
 	glBegin(GL_LINE_STRIP);
 
@@ -97,8 +102,18 @@ SpecialButton::SpecialButton(double _x, double _y, double _width, double _height
 	pressed = false;
 	clicked_time = 0;
 	Button_value = 0;
+
 }
 
 double SpecialButton::getButtonValue(){
 	return Button_value;
+}
+
+void SpecialButton::ButtonCallback()
+{
+	printf("EVENT ACCOURED IT WORKS!!!!!!");
+}
+
+void SpecialButton::SetButtonDoneCallback(ButtonDoneEvent cb){
+	cb();
 }
